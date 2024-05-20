@@ -6,7 +6,7 @@ class Tarea:
 
     #Métodos CRUD
     def read(self):
-        pass
+        print(open("tarea.txt", "r"))
 
     def update(self):
         pass

@@ -1,5 +1,15 @@
+Screen{
+    width: 100%;
+    align-horizontal: center;
+}
+
 Button {
     margin: 1 2;
+    background: lightskyblue;
+    color: black;
+    border: none;
+    height: 25%;
+    text-align: center;
 }
 
 Horizontal > VerticalScroll {
