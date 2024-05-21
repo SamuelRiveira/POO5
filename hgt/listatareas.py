@@ -3,9 +3,8 @@ class ListaTareas:
 
     limitador = "|##|"
 
-    def __init__(self, listaTareas:list):
-        listaTareas = []
-        self.listaTareas = listaTareas
+    def __init__(self):
+       self.listaTareas = []
 
     def agregar(self, tarea:Tarea):
         self.listaTareas.append(tarea)

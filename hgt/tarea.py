@@ -6,7 +6,7 @@ class Tarea:
 
     #Métodos CRUD
     def leer(self) -> str:
-        return self.tarea
+        return f"ID: {self.id}\nTarea: {self.tarea}\nEstado: {self.estado}"
 
     def actualizar(self, tarea, estado) -> None:
         self.tarea = tarea
