@@ -26,4 +26,3 @@ def test_archivoListaJugador(archivo):
     lista = ListaJugador()
     lista.load(archivo.leer())
     assert lista.read() == DATA
-    
