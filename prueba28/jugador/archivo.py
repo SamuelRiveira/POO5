@@ -15,6 +15,7 @@ class Archivo:
             f = open(self.nombre, 'wt')
         except:
             raise Exception("Error")
-            with f:
-                f.write(texto)
-                return true
+            
+        with f:
+            f.write(texto)
+            return true
