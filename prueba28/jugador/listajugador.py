@@ -22,7 +22,7 @@ class ListaJugador:
         for jugador_str in jugadores:
             nombre, deporte = jugador_str.split(', ')
             jugador = Jugador(nombre, deporte)
-            self.jugadores.append(jugador)
+            self.add(jugador)
 
     def update(self, nombre, deporte):
         for j in self.jugadores:

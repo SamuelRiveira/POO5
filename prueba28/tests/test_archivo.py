@@ -1,29 +1,30 @@
-from listajugador import ListaJugador
-from archivo import Archivo
+# test_archivo.py
+
 import pytest
 import os
-
-FILENAME = 'lista.dat'
-DATA = 'Juan, futbol' + ListaJugador.limitador + 'Pedro, baloncesto'
+from archivo import Archivo
 
 @pytest.fixture
 def archivo():
-    return Archivo(FILENAME)
+    nombre_archivo = "testfile.txt"
+    archivo = Archivo(nombre_archivo)
+    yield archivo
+    try:
+        os.remove(nombre_archivo)
+    except FileNotFoundError:
+        pass
 
-def test_archivoLeer(archivo):
-    # Eliminar el archivo si existe
-    if os.path.exists(FILENAME):
-        os.remove(FILENAME)
-    assert archivo.leer() == ''
+def test_create_archivo(archivo):
+    texto = "Hola, mundo!"
+    archivo.escribir(texto)
+    assert archivo.leer() == texto
 
-def test_archivoEscribir(archivo):
-    assert archivo.escribir(DATA) == True
+def test_update_archivo(archivo):
+    texto = "Nuevo contenido"
+    archivo.escribir(texto)
+    assert archivo.leer() == texto
 
-def test_archivoLeer2(archivo):
-    assert archivo.leer() == DATA
-
-def test_archivoListaJugador(archivo):
-    lista = ListaJugador()
-    lista.load(archivo.leer())
-    assert lista.read() == DATA
-    
+def test_delete_archivo(archivo):
+    archivo.escribir("Contenido temporal")
+    os.remove(archivo.nombre)
+    assert archivo.leer() == ""
